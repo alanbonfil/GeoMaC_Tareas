@@ -23,7 +23,7 @@
 #     - Modifique el dominio de graficación de la función ($x$).
 #     - Modifique los extremos del intervalo a evaluar ($A$ y $B$).
 
-# In[2]:
+# In[3]:
 
 
 import numpy as np
@@ -31,7 +31,7 @@ import matplotlib.pyplot as plt
 get_ipython().run_line_magic('matplotlib', 'inline')
 
 
-# In[3]:
+# In[4]:
 
 
 # Función a ser evaluada
@@ -59,20 +59,75 @@ plt.grid()
 plt.show()
 
 
-# In[11]:
+# In[7]:
 
 
 # Función a ser evaluada
-#y = lambda x: x * np.cos(x)-2 * x**2 + 3 * x - 1
-y= lambda x: 2**x * np.cos(2x) - (x-2)**2
+y= lambda x: x **2-4*x+4-np.log(x)
 
 # Dominio de la función
 xmin = 0
 xmax = 2
 x = np.linspace(xmin, xmax, 100)
 
-A = 3  # Extremo izquierdo del intervalo
-B = 4  # Extremo derecho del intervalo
+A = 1  # Extremo izquierdo del intervalo
+B = 2  # Extremo derecho del intervalo
+
+# Gráfica de la función
+plt.plot(x,y(x), 'r-', lw=2)
+
+# Líneas verticales en los extremos del intervalo y línea en y = 0
+ymin = np.min(y(x))
+ymax = np.max(y(x))
+plt.plot([A,A], [ymin,ymax], 'g--', lw=1)
+plt.plot([B,B], [ymin,ymax], 'g--', lw=1)
+plt.plot([xmin, xmax], [0,0], 'b-', lw=1)
+
+plt.grid()
+plt.show()
+
+
+# In[19]:
+
+
+# Función a ser evaluada
+y= lambda x: 2**x *(np.cos(2*x))-((x-2))**2
+
+# Dominio de la función
+xmin = 1
+xmax = 4
+x = np.linspace(xmin, xmax, 100)
+
+A = 2  # Extremo izquierdo del intervalo
+B = 3  # Extremo derecho del intervalo
+
+# Gráfica de la función
+plt.plot(x,y(x), 'r-', lw=2)
+
+# Líneas verticales en los extremos del intervalo y línea en y = 0
+ymin = np.min(y(x))
+ymax = np.max(y(x))
+plt.plot([A,A], [ymin,ymax], 'g--', lw=1)
+plt.plot([B,B], [ymin,ymax], 'g--', lw=1)
+plt.plot([xmin, xmax], [0,0], 'b-', lw=1)
+
+plt.grid()
+plt.show()
+
+
+# In[21]:
+
+
+# Función a ser evaluada
+y= lambda x: x-(np.log(x))**x
+
+# Dominio de la función
+xmin = 1
+xmax = 5
+x = np.linspace(xmin, xmax, 100)
+
+A = 4  # Extremo izquierdo del intervalo
+B = 5  # Extremo derecho del intervalo
 
 # Gráfica de la función
 plt.plot(x,y(x), 'r-', lw=2)
